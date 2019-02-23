@@ -11,8 +11,8 @@ import fish.payara.cloud.connectors.kafka.api.OnRecord;
 @MessageDriven(activationConfig = {
 	    @ActivationConfigProperty(propertyName = "clientId", propertyValue = "testClient"),
 	    @ActivationConfigProperty(propertyName = "groupIdConfig", propertyValue = "test-consumer-group"),
-	    @ActivationConfigProperty(propertyName = "topics", propertyValue = "testing"),
-	    @ActivationConfigProperty(propertyName = "bootstrapServersConfig", propertyValue = "192.168.29.139:9092"),   
+	    @ActivationConfigProperty(propertyName = "topics", propertyValue = "first_topic"),
+	    @ActivationConfigProperty(propertyName = "bootstrapServersConfig", propertyValue = "localhost:9092"),   
 	    @ActivationConfigProperty(propertyName = "autoCommitInterval", propertyValue = "100"),   
 	    @ActivationConfigProperty(propertyName = "retryBackoff", propertyValue = "1000"),   
 	    @ActivationConfigProperty(propertyName = "keyDeserializer", propertyValue = "org.apache.kafka.common.serialization.StringDeserializer"),   
@@ -21,7 +21,7 @@ import fish.payara.cloud.connectors.kafka.api.OnRecord;
 	})
 	public class KafkaMDB implements KafkaListener {
 	     
-	    @OnRecord( topics={"testing"})
+	    @OnRecord( topics={"first_topic"})
 	    public void getMessageTest(ConsumerRecord record) {
 	        System.out.println("Got record on topic testing " + record);
 	    }
